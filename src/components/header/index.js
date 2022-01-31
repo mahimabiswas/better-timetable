@@ -6,7 +6,7 @@ import profileImg from '../../assets/sample_profile.jpg';
 export default function Header() {
     return (
         <>
-            <div className='header'>
+            <header>
                 <div className='brand'>
                     <img src={logo} alt="name" />
                     <h1>Better Timetable</h1>
@@ -14,7 +14,7 @@ export default function Header() {
                 <div className='profile'>
                     <img src={profileImg} alt="name" />
                 </div>
-            </div>
+            </header>
         </>
     )
 }

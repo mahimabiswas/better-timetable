@@ -31,13 +31,13 @@ const NAVLINKS = {
 
 export default function SideNav() {
     return (
-        <div className='sideNav'>
+        <nav>
             {Object.keys(NAVLINKS).map(nl => (
                 <div className='navLink'>
                     {NAVLINKS[nl].icon}
                     <p>{NAVLINKS[nl].label}</p>
                 </div>
             ))}
-        </div>
+        </nav>
     )
 }

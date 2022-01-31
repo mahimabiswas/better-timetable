@@ -1,9 +1,10 @@
 .timetable {
   background: #f5f5fc;
-  width: calc(100vw - 220px);
-  max-width: calc(100vw - 220px);
+  width: 100%;
+  height: 100%;
   padding: 42px 36px;
   .top {
+    width: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -26,6 +27,34 @@
       padding: 8px 16px;
       font-weight: 500;
       border-radius: 4px;
+    }
+  }
+  display: block;
+  .table {
+    width: calc(100vw - 292px);
+    max-width: 100%;
+    margin-top: 36px;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: rgb(95, 95, 95);
+    }
+    .cells {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(calc(24 * 2), 42px);
+      grid-template-rows: repeat(7, 70px);
+      .cell {
+        border-left: 1.2px solid #9b9aa050;
+        border-bottom: 1.6px solid #9b9aa050;
+      }
     }
   }
 }

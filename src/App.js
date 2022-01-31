@@ -1,16 +1,13 @@
-import Header from './components/header';
-import SideNav from './components/sidenav';
+import Layout from './components/layout';
 import TimeTable from './components/timetable';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main style={{ display: 'flex' }}>
-        <SideNav />
+    <>
+      <Layout>
         <TimeTable />
-      </main>
-    </div>
+      </Layout>
+    </>
   );
 }
 
