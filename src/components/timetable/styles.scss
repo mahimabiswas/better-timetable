@@ -1,0 +1,31 @@
+.timetable {
+  background: #f5f5fc;
+  width: calc(100vw - 220px);
+  max-width: calc(100vw - 220px);
+  padding: 42px 36px;
+  .top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    .meta {
+      p {
+        font-size: 0.8rem;
+        color: #87868e;
+      }
+      h2 {
+        margin-top: 8px;
+        color: #3f3f4b;
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+    }
+    button {
+      background: #ffffff;
+      color: #676872;
+      border: 0;
+      padding: 8px 16px;
+      font-weight: 500;
+      border-radius: 4px;
+    }
+  }
+}
