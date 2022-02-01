@@ -26,27 +26,37 @@ export default function TimeTable() {
         }
     }
     return (
-        <div className='timetable'>
+        <main>
             <Top />
-            <div className='table'>
-                <div className='timestamps'>
-                    {times.map((t) =>
-                        <div className='timestamp'><p>{t}</p></div>
-                    )}
+            <div className='timetable' >
+                <div className='days'>
+                    <div className='day'>mon</div>
+                    <div className='day'>tue</div>
+                    <div className='day'>wed</div>
+                    <div className='day'>thur</div>
+                    <div className='day'>fri</div>
+                    <div className='day'>sat</div>
+                    <div className='day'>sun</div>
                 </div>
-                <div className='cells'>
-                    {[...Array(24 * 2 * 7)].map(() =>
-                        <div className='cell'></div>
-                    )}
-                </div>
-                <div className='classes'>
-                    <div className='class class1'>Machine Learning Grp 1</div>
-                    <div className='class class2'>Blockchain Grp 1</div>
-                    <div className='class class3'>Server Side Web Technology</div>
-                    <div className='class class4'>IOT Grp 1</div>
-
+                <div className='table'>
+                    <div className='timestamps'>
+                        {times.map((t) =>
+                            <div className='timestamp'><p>{t}</p></div>
+                        )}
+                    </div>
+                    <div className='cells'>
+                        {[...Array(24 * 2 * 7)].map(() =>
+                            <div className='cell'></div>
+                        )}
+                    </div>
+                    <div className='classes'>
+                        <div className='class class1'>Machine Learning Grp 1</div>
+                        <div className='class class2'>Blockchain Grp 1</div>
+                        <div className='class class3'>Server Side Web Technology</div>
+                        <div className='class class4'>IOT Grp 1</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     )
 }
