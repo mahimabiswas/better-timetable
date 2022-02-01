@@ -42,6 +42,7 @@ main {
       position: relative;
       .day {
         font-size: 0.9rem;
+        color: #87868e;
         border-bottom: 1.6px solid #9b9aa02d;
         display: flex;
         align-items: center;
@@ -100,32 +101,10 @@ main {
           color: #f5f5fc;
           display: flex;
           justify-content: flex-start;
-          padding-left: 12px;
+          padding: 0 12px;
           align-items: center;
           font-size: 0.8rem;
-        }
-        .class1 {
-          grid-column: 2/7;
-          background-color: #8d0cf4;
-          box-shadow: 3px 3px 9px #8d0cf499;
-        }
-        .class2 {
-          grid-row: 3;
-          grid-column: 6/12;
-          background-color: #f74537;
-          box-shadow: 3px 3px 9px #f7453799;
-        }
-        .class3 {
-          grid-row: 4;
-          grid-column: 3/10;
-          background-color: #3347e8;
-          box-shadow: 3px 3px 9px #3347e899;
-        }
-        .class4 {
-          grid-row: 2;
-          grid-column: 4/10;
-          background-color: #ff9315;
-          box-shadow: 3px 3px 9px #ff931599;
+          font-weight: 400;
         }
       }
     }
