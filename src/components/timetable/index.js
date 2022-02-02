@@ -1,16 +1,17 @@
 import React from 'react';
 import './styles.scss';
-import randomColor from 'randomcolor';
-
+// import randomColor from 'randomcolor';
+// import schedule from './merged.json'
+/*
 const schedule = [
     {
         label: "Machine Learning Grp 1",
         from: 1030,
-        to: 1230,
+        to: 1300,
         day: 1
     },
     {
-        label: 'Blockchain Grp 1',
+        label: 'Blockchain Group 1',
         from: 800,
         to: 1000,
         day: 2
@@ -40,7 +41,7 @@ const schedule = [
         day: 2
     },
     {
-        label: 'Internet of Things - Grp 1',
+        label: 'Internet of Things Grp 1',
         from: 1630,
         to: 1830,
         day: 4
@@ -52,6 +53,7 @@ const schedule = [
         to: 1200
     }
 ];
+*/
 
 function Top() {
     return (
@@ -62,22 +64,21 @@ function Top() {
             </div>
             <button>share</button>
         </div>
-
     )
 }
 
-function getColCount(time) {
-    let ti = true, i = 1, t = 0;
-    while (t < time) {
-        ti = !ti
-        t += 30;
-        if (ti) {
-            t += 40;
-        }
-        i++;
-    }
-    return i;
-}
+// function getColCount(time) {
+//     let ti = true, i = 1, t = 0;
+//     while (t < time) {
+//         ti = !ti
+//         t += 30;
+//         if (ti) {
+//             t += 40;
+//         }
+//         i++;
+//     }
+//     return i;
+// }
 
 export default function TimeTable() {
     const times = ["00"];
@@ -116,23 +117,29 @@ export default function TimeTable() {
                         )}
                     </div>
                     <div className='classes'>
-                        {schedule.map(_class => (
+                        {/* temp */}
+                        <div className='class class1'>Machine Learning Grp 1</div>
+                        <div className='class class2'>Blockchain Grp 1</div>
+                        <div className='class class3'>Server Side Web Technology</div>
+                        <div className='class class4'>IOT Grp 1</div>
+
+                        {/* {schedule.map(_class => (
                             <div className='class'
                                 style={{
                                     gridRow: _class.day,
                                     background: randomColor({
                                         seed: _class.label,
-                                        luminosity: 'bright'
+                                        luminosity: 'dark'
                                     }),
-                                    boxShadow: `3px 3px 9px ${randomColor({
+                                    boxShadow: `0px 4px 9px ${randomColor({
                                         seed: _class.label,
-                                        luminosity: 'bright',
+                                        luminosity: 'dark',
                                         format: 'hex'
                                     })}99`,
                                     gridColumnStart: getColCount(_class.from),
                                     gridColumnEnd: getColCount(_class.to)
-                                }}>{_class.label}</div>
-                        ))}
+                                }}><p>{_class.label}</p></div>
+                        ))} */}
                     </div>
                 </div>
             </div>
