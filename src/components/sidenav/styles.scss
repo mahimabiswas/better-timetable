@@ -12,8 +12,21 @@ nav {
     min-width: 48px;
   }
   @include small {
-    max-width: 0px;
-    min-width: 0px;
+    min-width: min-content;
+    padding: 36px 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    bottom: 24px;
+    height: 36px;
+    column-gap: 12px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0px 0px 7px #b0b0b099;
+    z-index: 1;
   }
   .navLink {
     display: flex;
@@ -22,6 +35,13 @@ nav {
     color: #9192a3;
     padding: 8px;
     border-radius: 2px;
+    @include small {
+      font-size: 1.4rem;
+      background: #dddddd;
+      padding: 18px;
+      border-radius: 12px;
+      color: #363636;
+    }
     &:hover {
       background: #f5f5f5;
       cursor: pointer;

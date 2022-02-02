@@ -10,7 +10,7 @@
     grid-template-columns: 48px 1fr;
   }
   @include small {
-    grid-template-columns: 0 1fr;
+    grid-template-columns: 1fr;
   }
   header {
     grid-column: span 2;
