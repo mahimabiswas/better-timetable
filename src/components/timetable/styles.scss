@@ -44,6 +44,7 @@ main {
       width: calc(100vw - (292px - (220px - 48px)));
     }
     @include small {
+      grid-template-columns: 32px 1fr;
       width: calc(98vw - 24px);
     }
     .days {
@@ -58,6 +59,10 @@ main {
         display: flex;
         align-items: center;
         padding-left: 8px;
+        @include small {
+          padding-left: 0;
+          font-size: 0.85rem;
+        }
       }
     }
     .table {

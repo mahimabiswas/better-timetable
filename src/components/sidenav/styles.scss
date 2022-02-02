@@ -36,10 +36,10 @@ nav {
     padding: 8px;
     border-radius: 2px;
     @include small {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       background: #dddddd;
-      padding: 18px;
-      border-radius: 12px;
+      padding: 16px;
+      border-radius: 8px;
       color: #363636;
     }
     &:hover {
