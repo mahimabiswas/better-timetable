@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import './styles.scss';
 import { RiTableFill, RiAccountCircleFill } from 'react-icons/ri';
 import { FaClipboardList } from 'react-icons/fa';
@@ -33,12 +33,12 @@ export default function SideNav() {
     return (
         <nav>
             {Object.keys(NAVLINKS).map(nl => (
-                <Link to={'/' + nl}>
+                <NavLink to={'/' + nl} activeClassName="active">
                     <div className='navLink'>
                         {NAVLINKS[nl].icon}
                         <p>{NAVLINKS[nl].label}</p>
                     </div>
-                </Link>
+                </NavLink>
             ))}
         </nav>
     )

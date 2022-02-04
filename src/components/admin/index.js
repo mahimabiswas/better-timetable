@@ -12,7 +12,10 @@ export default function Admin() {
                     {/* <p>Wednesday, 24 June</p> */}
                     <h2>Admin Dashboard</h2>
                 </div>
-                <Button label="Add New Batch" icon={<FaPlus />} />
+                <div className="actions">
+                    <Button label="Add New Batch" icon={<FaPlus />} />
+                    <Button label="Add New Teacher" icon={<FaPlus />} />
+                </div>
             </div>
             <div className="admin-dashboard">
                 <Programmes />

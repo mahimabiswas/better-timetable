@@ -1,4 +1,10 @@
 main {
+  .top {
+    .actions {
+      display: flex;
+      column-gap: 12px;
+    }
+  }
   .admin-dashboard {
     margin-top: 16px;
     display: grid;
@@ -21,6 +27,9 @@ main {
         border: 1px solid #a1a1a1b9;
         background: #fffffe;
         color: #414141;
+        &:hover {
+          cursor: pointer;
+        }
         h3 {
           font-size: 1.4rem;
         }
@@ -54,7 +63,10 @@ main {
         align-items: center;
         margin-bottom: 12px;
         border-radius: 4px;
-        padding: 8px 16px;
+        padding: 12px;
+        &:hover {
+          cursor: pointer;
+        }
         .details {
           display: flex;
           align-items: center;

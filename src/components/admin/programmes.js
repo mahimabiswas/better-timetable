@@ -23,6 +23,27 @@ const data = {
         batches: 8,
         teachers: 22,
         courses: 28
+    },
+    "msc-ss": {
+        label: 'MSC (SS)',
+        desc: 'Master of Science - System Security',
+        batches: 8,
+        teachers: 22,
+        courses: 28
+    },
+    "mba-it": {
+        label: 'MBA (IT)',
+        desc: 'Master of Business Administration - Information Technology',
+        batches: 8,
+        teachers: 22,
+        courses: 28
+    },
+    "mba-dt": {
+        label: 'MBA (DT)',
+        desc: 'Master of Business Administration - Digital Transformation',
+        batches: 8,
+        teachers: 22,
+        courses: 28
     }
 };
 
