@@ -1,5 +1,8 @@
+import Button from 'components/shared/button';
 import React from 'react';
 import './styles.scss';
+import { FaShare } from 'react-icons/fa';
+
 // import randomColor from 'randomcolor';
 // import schedule from './merged.json'
 /*
@@ -62,7 +65,7 @@ function Top() {
                 <p>Wednesday, 24 June</p>
                 <h2>BCA Sem 3 Div A</h2>
             </div>
-            <button>share</button>
+            <Button label="Share" icon={<FaShare />} />
         </div>
     )
 }

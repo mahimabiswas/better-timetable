@@ -1,0 +1,25 @@
+button {
+  background: #ffffff;
+  color: #000538;
+  border: 0;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  box-shadow: 0px 0px 5px 0px #bcbcbc5e;
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:disabled {
+    color: #676872;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+  span {
+    margin-left: 8px;
+    display: flex;
+  }
+}

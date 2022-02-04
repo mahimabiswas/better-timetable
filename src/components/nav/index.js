@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './styles.scss';
 import { RiTableFill, RiAccountCircleFill } from 'react-icons/ri';
 import { FaClipboardList } from 'react-icons/fa';
 import { MdDashboard } from 'react-icons/md';
 import { AiTwotoneSetting } from 'react-icons/ai';
-
 const NAVLINKS = {
     dashboard: {
         icon: <MdDashboard />,
@@ -33,10 +33,12 @@ export default function SideNav() {
     return (
         <nav>
             {Object.keys(NAVLINKS).map(nl => (
-                <div className='navLink'>
-                    {NAVLINKS[nl].icon}
-                    <p>{NAVLINKS[nl].label}</p>
-                </div>
+                <Link to={'/' + nl}>
+                    <div className='navLink'>
+                        {NAVLINKS[nl].icon}
+                        <p>{NAVLINKS[nl].label}</p>
+                    </div>
+                </Link>
             ))}
         </nav>
     )
