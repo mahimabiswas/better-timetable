@@ -1,10 +1,6 @@
 @import "scss/util";
 
 main {
-  background: #f5f5fc;
-  @include small {
-    padding: 42px 12px;
-  }
   .top {
     width: 100%;
     display: flex;

@@ -35,9 +35,11 @@ export default function Board() {
                 <Button label="Create" icon={<FaPlus />} />
             </div>
             <div className="board">
-                {[...Array(4)].map(i => (
-                    <Notice i={i} />
-                ))}
+                <div className="notices">
+                    {[...Array(4)].map(i => (
+                        <Notice i={i} />
+                    ))}
+                </div>
             </div>
         </main>
     )
