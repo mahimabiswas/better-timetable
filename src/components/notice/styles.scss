@@ -4,15 +4,16 @@ main {
   .board {
     margin-top: 16px;
     height: calc(100vh - 200px);
-    overflow-y: scroll;
     display: grid;
     grid-template-columns: 720px 1fr;
     @include medium {
       grid-template-columns: 1fr;
     }
     .notices {
+      height: 100%;
+      overflow-y: scroll;
       .notice {
-        background: #fffffe;
+        background: var(--white);
         padding: 12px;
         border-radius: 4px;
         width: 100%;
@@ -20,7 +21,8 @@ main {
         margin-bottom: 16px;
         .pin {
           padding: 6px;
-          background: #e9e9e9;
+          color: var(--gray);
+          background: var(--light-gray);
           position: absolute;
           display: flex;
           border-radius: 4px;
@@ -33,7 +35,7 @@ main {
         .author {
           display: flex;
           align-items: center;
-          color: #2e2e2e;
+          color: var(--dark);
           img {
             width: 42px;
             height: 42px;
@@ -50,13 +52,14 @@ main {
         }
         .data {
           margin-top: 12px;
-          color: #3f3f3f;
           h1 {
             font-size: 1.6rem;
+            color: var(--dark);
           }
           p {
             font-size: 0.9rem;
             margin-top: 8px;
+            color: var(--gray);
           }
         }
       }

@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+html {
+  --dark: #3f3f4b;
+  --white: #fffffe;
+  --sub-headline: "";
+  --gray: #525252;
+  --light-gray: #e2e2e2;
+  --background: #f5f5fc;
+  --highlight: #ff6e6c;
+}
+/* dark theme styling - Here, we set data-them as "dark"*/
+html[data-theme="dark"] {
+  --dark: #c2c2c2;
+  --white: #181818;
+  --sub-headline: "";
+  --gray: #b6b6b6;
+  --light-gray: #3a3a3a;
+  --background: #1f1f1f;
+  --highlight: #ff6e6c;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -31,5 +51,5 @@ code {
 }
 *::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgb(146, 146, 146);
+  background-color: var(--light-gray);
 }

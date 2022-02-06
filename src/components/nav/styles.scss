@@ -5,9 +5,9 @@ nav {
   height: 100%;
   max-width: 220px;
   min-width: 220px;
-  background: #ffffff;
+  background: var(--white);
   padding: 36px 8px;
-  box-shadow: 3px 0px 18px 0 #e2e2e2;
+  box-shadow: 3px 0px 18px 0 var(--light-gray);
   a {
     text-decoration: none;
   }
@@ -24,30 +24,30 @@ nav {
     bottom: 24px;
     height: 36px;
     column-gap: 12px;
-    background: #ffffff;
+    background: var(--white);
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 12px;
-    box-shadow: 0px 0px 7px #b0b0b099;
+    box-shadow: 0px 0px 7px var(--light-gray);
     z-index: 1;
   }
   .navLink {
     display: flex;
     align-items: center;
     margin: 4px 0;
-    color: #9192a3;
+    color: var(--gray);
     padding: 8px;
     border-radius: 2px;
     @include small {
       font-size: 1.2rem;
-      background: #dddddd;
+      background: var(--light-gray);
       padding: 16px;
       border-radius: 8px;
-      color: #363636;
+      color: var(--gray);
     }
     &:hover {
-      background: #f5f5f5;
+      background: var(--light-gray);
       cursor: pointer;
     }
     p {
@@ -61,8 +61,8 @@ nav {
   }
   .active {
     .navLink {
-      color: #000538;
-      background: #f5f5f5;
+      color: var(--dark);
+      background: var(--light-gray);
     }
   }
 }
