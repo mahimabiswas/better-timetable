@@ -1,10 +1,10 @@
-import Button from "components/shared/button";
+import Button from "shared/button";
 import { FaPlus } from 'react-icons/fa';
 import Programmes from "./programmes";
 import './styles.scss';
-import profileImg from '../../assets/sample_profile.jpg';
+import profileImg from 'assets/sample_profile.jpg';
 
-export default function Admin() {
+export default function Main() {
     return (
         <main>
             <div className='top'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
-import logo from '../../assets/logo.svg';
-import profileImg from '../../assets/sample_profile.jpg';
+import logo from 'assets/logo.svg';
+import profileImg from 'assets/sample_profile.jpg';
 
 export default function Header() {
     return (

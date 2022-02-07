@@ -33,7 +33,7 @@ export default function SideNav() {
     return (
         <nav>
             {Object.keys(NAVLINKS).map(nl => (
-                <NavLink to={'/' + nl} activeClassName="active">
+                <NavLink to={'/' + nl} activeclassname="active" key={nl}>
                     <div className='navLink'>
                         {NAVLINKS[nl].icon}
                         <p>{NAVLINKS[nl].label}</p>

@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { MdClass } from 'react-icons/md';
-
 const data = {
     bca: {
         label: 'BCA',
@@ -48,18 +48,21 @@ const data = {
 };
 
 export default function Programmes() {
+    // let { path, url } = useRouteMatch()
     return (
         <div className="programmes">
             {Object.keys(data).map(prog => (
-                <div className="program" key={prog}>
-                    <h3>{data[prog].label}</h3>
-                    <p className="desc">{data[prog].desc}</p>
-                    <div className="stats">
-                        <div className="stat"><BsPeopleFill /> <p><b>{data[prog].batches}</b> batches</p></div>
-                        <div className="stat"><FaChalkboardTeacher /><p><b>{data[prog].teachers}</b> teachers allocated</p></div>
-                        <div className="stat"><MdClass /> <p><b>{data[prog].courses}</b> courses</p></div>
+                <Link to={`${prog}`}>
+                    <div className="program" key={prog}>
+                        <h3>{data[prog].label}</h3>
+                        <p className="desc">{data[prog].desc}</p>
+                        <div className="stats">
+                            <div className="stat"><BsPeopleFill /> <p><b>{data[prog].batches}</b> batches</p></div>
+                            <div className="stat"><FaChalkboardTeacher /><p><b>{data[prog].teachers}</b> teachers allocated</p></div>
+                            <div className="stat"><MdClass /> <p><b>{data[prog].courses}</b> courses</p></div>
+                        </div>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     )

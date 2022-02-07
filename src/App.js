@@ -1,12 +1,17 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Admin from 'components/admin';
-import TimeTable from 'components/timetable';
-import Layout from './components/layout';
-import Notice from "components/notice";
-import Account from "components/account";
-import Settings from "components/settings";
+import Layout from 'shared/layout';
+import Admin from 'page/admin';
+import TimeTable from 'page/timetable';
+import Notice from "page/notice";
+import Account from "page/account";
+import Settings from "page/settings";
+import setTheme from "util/theme";
 
 function App() {
+  useEffect(() => {
+    setTheme();
+  });
   return (
     <>
       <Layout>

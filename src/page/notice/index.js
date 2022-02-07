@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Button from "components/shared/button";
+import Button from "shared/button";
 import { FaPlus } from 'react-icons/fa';
 import './styles.scss';
-import profileImg from '../../assets/sample_profile.jpg';
+import profileImg from 'assets/sample_profile.jpg';
 import { AiOutlinePushpin, AiFillPushpin } from 'react-icons/ai'
 
 function Notice({ i }) {

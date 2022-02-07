@@ -1,5 +1,5 @@
-import Button from 'components/shared/button';
 import React from 'react';
+import Button from 'shared/button';
 import './styles.scss';
 import { FaShare } from 'react-icons/fa';
 

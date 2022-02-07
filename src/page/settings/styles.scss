@@ -1,0 +1,22 @@
+.btt-container {
+  .btt__control {
+    background: var(--white);
+    //     color: var(--gray);
+    //     border-color: var(--gray);
+    //     outline: none;
+    //     &:hover {
+    //       box-shadow: 0 0 4px var(--dark);
+    //     }
+    //     .btt__value-container {
+    //       color: var(--dark);
+    //     }
+  }
+  .btt__menu {
+    //     background: var(--white);
+    //     color: var(--gray);
+    .btt__option:hover {
+      color: var(--white);
+      //       background: var(--gray);
+    }
+  }
+}

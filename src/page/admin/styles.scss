@@ -26,8 +26,11 @@ main {
         border: 1px solid var(--light-gray);
         background: var(--white);
         color: var(--dark);
+        transition: box-shadow 0.2s ease 0s, transform 0.2s ease 0s,
+          padding 0.2s ease 0s;
         &:hover {
           cursor: pointer;
+          transform: translateY(-4px);
         }
         h3 {
           font-size: 1.4rem;
