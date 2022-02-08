@@ -6,7 +6,6 @@ main {
     }
   }
   .admin-dashboard {
-    margin-top: 16px;
     display: grid;
     grid-template-columns: minmax(800px, 1fr) 1fr;
     height: calc(100vh - 200px);
@@ -20,6 +19,9 @@ main {
       column-gap: 18px;
       row-gap: 18px;
       padding-right: 18px;
+      a {
+        text-decoration: none;
+      }
       .program {
         padding: 12px;
         border-radius: 4px;

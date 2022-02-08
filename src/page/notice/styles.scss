@@ -2,7 +2,6 @@
 
 main {
   .board {
-    margin-top: 16px;
     height: calc(100vh - 200px);
     display: grid;
     grid-template-columns: 720px 1fr;

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Layout from 'shared/layout';
 import Admin from 'page/admin';
 import TimeTable from 'page/timetable';
@@ -15,15 +15,15 @@ function App() {
   return (
     <>
       <Layout>
-        <Routes>
-          <Route path="dashboard" element={<Admin />} />
-          <Route path="/" element={<TimeTable />} />
-          <Route path="timetable" element={<TimeTable />} />
-          <Route path="notice" element={<Notice />} />
-          <Route path="account" element={<Account />} />
-          <Route path="settings" element={<Settings />} />
-        </Routes>
-      </Layout>
+        <Switch>
+          <Route exact path="/" children={<TimeTable />} />
+          <Route path="/dashboard" children={<Admin />} />
+          <Route path="/timetable" children={<TimeTable />} />
+          <Route path="/notice" children={<Notice />} />
+          <Route path="/account" children={<Account />} />
+          <Route path="/settings" children={<Settings />} />
+        </Switch>
+      </Layout >
     </>
   );
 }

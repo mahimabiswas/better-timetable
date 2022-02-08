@@ -1,20 +1,21 @@
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Main from "./main";
 import Program from "./program";
 
 export default function Admin() {
     // let { path } = useRouteMatch();
+    let { path } = useRouteMatch();
+
     return (
         <>
-            hi
-            <Routes>
-                <Route path={'/dashboard'}>
+            <Switch>
+                <Route exact path={path}>
                     <Main />
                 </Route>
-                <Route exact path={`/:program`}>
+                <Route path={`${path}/:program`}>
                     <Program />
                 </Route>
-            </Routes>
+            </Switch>
         </>
     )
 }

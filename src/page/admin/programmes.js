@@ -1,58 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { MdClass } from 'react-icons/md';
-const data = {
-    bca: {
-        label: 'BCA',
-        desc: 'Bachelor of Computer Application',
-        batches: 3,
-        teachers: 12,
-        courses: 21
-    },
-    "bba-it": {
-        label: 'BBA (IT)',
-        desc: 'Bachelor of Business Administration - Information Technology',
-        batches: 6,
-        teachers: 18,
-        courses: 36
-    },
-    "msc-ca": {
-        label: 'MSC (CA)',
-        desc: 'Master of Science - Computer Application',
-        batches: 8,
-        teachers: 22,
-        courses: 28
-    },
-    "msc-ss": {
-        label: 'MSC (SS)',
-        desc: 'Master of Science - System Security',
-        batches: 8,
-        teachers: 22,
-        courses: 28
-    },
-    "mba-it": {
-        label: 'MBA (IT)',
-        desc: 'Master of Business Administration - Information Technology',
-        batches: 8,
-        teachers: 22,
-        courses: 28
-    },
-    "mba-dt": {
-        label: 'MBA (DT)',
-        desc: 'Master of Business Administration - Digital Transformation',
-        batches: 8,
-        teachers: 22,
-        courses: 28
-    }
-};
+import data from 'data/program.json';
 
 export default function Programmes() {
-    // let { path, url } = useRouteMatch()
+    let { url } = useRouteMatch()
     return (
         <div className="programmes">
             {Object.keys(data).map(prog => (
-                <Link to={`${prog}`}>
+                <Link to={`${url}/${prog}`}>
                     <div className="program" key={prog}>
                         <h3>{data[prog].label}</h3>
                         <p className="desc">{data[prog].desc}</p>

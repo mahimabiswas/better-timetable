@@ -1,68 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Button from 'shared/button';
 import './styles.scss';
 import { FaShare } from 'react-icons/fa';
-
+import date from 'date-and-time';
+import ordinal from 'date-and-time/plugin/ordinal';
+// import convertTime from 'convert-time';
 // import randomColor from 'randomcolor';
 // import schedule from './merged.json'
-/*
-const schedule = [
-    {
-        label: "Machine Learning Grp 1",
-        from: 1030,
-        to: 1300,
-        day: 1
-    },
-    {
-        label: 'Blockchain Group 1',
-        from: 800,
-        to: 1000,
-        day: 2
-    },
-    {
-        label: 'Basic Psychology Grp 1',
-        from: 1330,
-        to: 1530,
-        day: 1
-    },
-    {
-        label: 'Introduction to Java Enterprise Framework',
-        from: 1130,
-        to: 1330,
-        day: 2
-    },
-    {
-        label: 'Server Side Web Technology',
-        from: 1300,
-        to: 1530,
-        day: 4
-    },
-    {
-        label: 'Internet of Things Grp 1',
-        from: 1600,
-        to: 1800,
-        day: 2
-    },
-    {
-        label: 'Internet of Things Grp 1',
-        from: 1630,
-        to: 1830,
-        day: 4
-    },
-    {
-        label: 'Current Trends and Practices in IT',
-        day: 5,
-        from: 1000,
-        to: 1200
+
+date.plugin(ordinal);
+
+const times = ["00"];
+for (let t = 30, ti = true; t <= 2400; t += 30, ti = !ti) {
+    let str = t.toString()
+    for (let i = str.length; i < 4; i++) {
+        str = "0" + str
     }
-];
-*/
+    times.push(str);
+    if (ti) {
+        t += 40;
+    }
+}
 
 function Top() {
+    const pattern = date.compile('dddd, DDD MMMM');
     return (
         <div className='top'>
             <div className='meta'>
-                <p>Wednesday, 24 June</p>
+                <p>{date.format(new Date(), pattern)}</p>
                 <h2>BCA Sem 3 Div A</h2>
             </div>
             <Button label="Share" icon={<FaShare />} />
@@ -83,18 +48,39 @@ function Top() {
 //     return i;
 // }
 
-export default function TimeTable() {
-    const times = ["00"];
-    for (let t = 30, ti = true; t <= 2400; t += 30, ti = !ti) {
-        let str = t.toString()
-        for (let i = str.length; i < 4; i++) {
-            str = "0" + str
-        }
-        times.push(str);
-        if (ti) {
-            t += 40;
-        }
+function convertTime(time) {
+    if (time.length < 4) {
+        return time;
     }
+    let h = parseInt(time.substr(0, 2));
+    let m = parseInt(time.substr(2, 4));
+
+    return `${h < 13 ? h : h - 12}${m === 0 ? '' : ':' + m
+        }${h < 13 ? 'am' : 'pm'}`
+}
+
+const dist = 42;
+
+function getPosition() {
+    const now = date.format(new Date(), 'HH:mm').split(':')
+    const h = now[0];
+    const m = now[1];
+    let pos = h * 2 * dist;
+    pos += m * (dist / 30);
+    return pos;
+}
+
+export default function TimeTable() {
+    const [currentTime, setCurrentTime] = useState(getPosition);
+    const table = useRef();
+    useEffect(() => {
+        table.current.scrollTo(getPosition() - 200, 0);
+        setInterval(() => {
+            setCurrentTime(getPosition());
+        }, 60 * 1000);
+    }, [])
+
+
     return (
         <main>
             <Top />
@@ -108,10 +94,13 @@ export default function TimeTable() {
                     <div className='day'>sat</div>
                     <div className='day'>sun</div>
                 </div>
-                <div className='table'>
+                <div className='table' ref={table}>
+                    <div className='currentTime' style={{ marginLeft: `${currentTime}px` }} />
                     <div className='timestamps'>
                         {times.map((t) =>
-                            <div className='timestamp'><p>{t}</p></div>
+                            <div className='timestamp'><p>
+                                {convertTime(t)}
+                            </p></div>
                         )}
                     </div>
                     <div className='cells'>

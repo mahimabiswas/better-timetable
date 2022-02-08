@@ -44,7 +44,6 @@ export default function Settings() {
              * default timetable
              * time type
              * notification
-             * 
              * show clock
              * clock type  
              **/}

@@ -13,7 +13,7 @@ export default function Main() {
                     <h2>Admin Dashboard</h2>
                 </div>
                 <div className="actions">
-                    <Button label="Add New Batch" icon={<FaPlus />} />
+                    <Button label="Add New Program" icon={<FaPlus />} />
                 </div>
             </div>
             <div className="admin-dashboard">
