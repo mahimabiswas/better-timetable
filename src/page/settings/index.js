@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Select from 'react-select';
-import './styles.scss';
 import { changeTheme, getTheme } from 'util/theme';
+import Select from 'shared/select';
+import './styles.scss';
+import Radio from 'shared/radio';
 
 const options = [
     { value: 'dark', label: '🌙 Dark' },
@@ -20,25 +21,43 @@ export default function Settings() {
                     <h2>Settings</h2>
                 </div>
             </div>
-            theme
-            <br />
-            <Select options={options}
-                value={options[theme === 'light' ? 1 : theme === 'dark' ? 0 : 2]} classNamePrefix='btt' className='btt-container' theme={(theme) => ({
-                    ...theme,
-                    borderRadius: "4px",
-                    colors: {
-                        ...theme.colors,
-                        primary50: "var(--light-gray)",
-                        primary25: "var(--gray)",
-                        primary: "var(--gray)",
-                        neutral80: "var(--gray)",
-                    },
-                })}
-                onChange={(e) => {
-                    setTheme(e.value);
-                    changeTheme(e.value);
-                }}
-            />
+            <div className='settings'>
+                <div className='setting'>
+                    <p>theme</p>
+                    <Select options={options}
+                        value={options[theme === 'light' ? 1 : theme === 'dark' ? 0 : 2]}
+                        onChange={(e) => {
+                            setTheme(e.value);
+                            changeTheme(e.value);
+                        }}
+                    />
+                </div>
+                <div className='setting'>
+                    <p>clock type</p>
+                    <Select options={options}
+                        value={options[theme === 'light' ? 1 : theme === 'dark' ? 0 : 2]}
+                        onChange={(e) => {
+                            setTheme(e.value);
+                            changeTheme(e.value);
+                        }}
+                    />
+                </div>
+                <div className='setting'>
+                    <p>notification</p>
+                    <Radio options={options} name="noti" defaultSelected={2} onChange={(e) => { console.log(e) }} />
+
+                </div>
+                <div className='setting'>
+                    <p>show clock</p>
+                    <Select options={options}
+                        value={options[theme === 'light' ? 1 : theme === 'dark' ? 0 : 2]}
+                        onChange={(e) => {
+                            setTheme(e.value);
+                            changeTheme(e.value);
+                        }}
+                    />
+                </div>
+            </div>
             {/**
              * theme
              * default timetable
