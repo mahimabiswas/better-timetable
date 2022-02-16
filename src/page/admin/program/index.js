@@ -2,6 +2,11 @@ import { useParams } from 'react-router-dom';
 import Button from 'shared/button';
 import { FaPlus } from 'react-icons/fa';
 import data from 'data/program.json';
+import { BsPeopleFill } from 'react-icons/bs';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { MdClass } from 'react-icons/md';
+import { AiFillDelete } from 'react-icons/ai';
+import './styles.scss';
 
 export default function Program() {
     let { program } = useParams();
@@ -16,11 +21,57 @@ export default function Program() {
                     <Button label="Add New Batch" icon={<FaPlus />} />
                 </div>
             </div>
-            <div className='batches'>
-                <div className='batch'>
-                    <h2>Div A</h2>
+            <div className='program-dashboard'>
+                <div className='program'>
+
+                    <div className='program-details'>
+                        <div className='stats'>
+                            <div className="stat"><BsPeopleFill /> <p><b>{3}</b> batches</p></div>
+                            <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
+                            <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
+                        </div>
+                    </div>
+                    <div className='batches'>
+                        <div className='batch'>
+                            <h3>Div A</h3>
+                            <div className='stats'>
+                                <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
+                                <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
+                            </div>
+                        </div>
+                        <div className='batch'>
+                            <h3>Div B</h3>
+                            <div className='stats'>
+                                <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
+                                <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
+                            </div>
+                        </div>
+                        <div className='batch'>
+                            <h3>Div C</h3>
+                            <div className='stats'>
+                                <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
+                                <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
+                            </div>
+                        </div>
+                        <div className='batch'>
+                            <h3>Div D</h3>
+                            <div className='stats'>
+                                <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
+                                <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='courses'>
+                    {[...Array(23)].map(() => (
+                        <div className='course'>
+                            <span><AiFillDelete /></span>
+                            <i><MdClass /></i>
+                            <h3>SSWT</h3>
+                        </div>
+                    ))}
                 </div>
             </div>
         </main>
     )
-}
+} 

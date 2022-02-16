@@ -3,7 +3,6 @@ import Main from "./main";
 import Program from "./program";
 
 export default function Admin() {
-    // let { path } = useRouteMatch();
     let { path } = useRouteMatch();
 
     return (
