@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
-import Layout from 'shared/layout';
-import Admin from 'page/admin';
-import TimeTable from 'page/timetable';
-import Notice from "page/notice";
-import Account from "page/account";
-import Settings from "page/settings";
+// import { Switch, Route } from "react-router-dom";
+// import Layout from 'shared/layout';
+// import Admin from 'page/admin';
+// import TimeTable from 'page/timetable';
+// import Notice from "page/notice";
+// import Account from "page/account";
+// import Settings from "page/settings";
 import setTheme from "util/theme";
 import Auth from "page/auth";
 

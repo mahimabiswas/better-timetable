@@ -14,7 +14,7 @@ export default function Auth() {
                         <h2>Designed for Schools and Colleges</h2>
                         <p>The checkbox size can be set by using height and width property. The height</p>
                     </div>
-                    <img src={appSs}></img>
+                    <img src={appSs} alt="app"></img>
                 </div>
                 <form>
 
@@ -35,7 +35,7 @@ export default function Auth() {
                     <button className='auth_button'>Login</button>
                     <p className='or'>or</p>
                     <button className='auth_button auth_google_button'><FcGoogle /><span>Authorize with Google</span></button>
-                    <p className='bottom_link'>Don't have a student account yet? <a>signup</a></p>
+                    <p className='bottom_link'>Don't have a student account yet? <a href='hi'>signup</a></p>
                 </form>
             </div>
             {/* background-image: linear-gradient(to left bottom, #000000, #0d0d0d, #161616, #1d1d1d, #252525, #282828, #2a2a2a, #2d2d2d, #2b2b2b, #2a2a2a, #282828, #272727); */}

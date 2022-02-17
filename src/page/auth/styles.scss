@@ -1,3 +1,5 @@
+@import "scss/util";
+
 .auth {
   height: 100vh;
   width: 100vw;
@@ -12,9 +14,23 @@
     grid-template-columns: 1.2fr 1fr;
     box-shadow: 0px 0px 8px 2px var(--light-gray);
     background-color: var(--white);
+    @include smallDesktop {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include medium {
+      grid-template-columns: 1fr;
+    }
+    @include small {
+      height: 100%;
+      width: 100%;
+      border-radius: 0;
+    }
     .promo {
       border-radius: 12px 0 0 12px;
       position: relative;
+      @include medium {
+        display: none;
+      }
       .logo {
         position: absolute;
         top: 18px;
@@ -42,6 +58,10 @@
         right: 0;
         width: 360px;
         height: auto;
+        border-top-left-radius: 4px;
+        @include smallDesktop {
+          width: 300px;
+        }
       }
     }
 
@@ -155,6 +175,9 @@
         color: var(--gray);
         font-size: 0.76rem;
         text-align: center;
+        @include small {
+          bottom: 36px;
+        }
         a {
           color: var(--highlight);
           font-weight: 500;
