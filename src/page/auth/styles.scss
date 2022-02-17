@@ -162,10 +162,13 @@
         font-size: 1.2rem;
         padding: 12px;
         margin-top: 0;
+        display: flex;
+        align-items: center;
         span {
           font-size: 0.8rem;
           font-weight: 400;
           color: var(--dark);
+          margin-left: 12px;
         }
       }
       .bottom_link {
