@@ -7,6 +7,7 @@ import Notice from "page/notice";
 import Account from "page/account";
 import Settings from "page/settings";
 import setTheme from "util/theme";
+import Auth from "page/auth";
 
 function App() {
   useEffect(() => {
@@ -14,8 +15,10 @@ function App() {
   });
   return (
     <>
-      <Layout>
+      <Auth />
+      {/* <Layout>
         <Switch>
+          <Route exact path="/auth" children={<Auth />} />
           <Route exact path="/" children={<TimeTable />} />
           <Route path="/dashboard" children={<Admin />} />
           <Route path="/timetable" children={<TimeTable />} />
@@ -23,7 +26,7 @@ function App() {
           <Route path="/account" children={<Account />} />
           <Route path="/settings" children={<Settings />} />
         </Switch>
-      </Layout >
+      </Layout > */}
     </>
   );
 }
