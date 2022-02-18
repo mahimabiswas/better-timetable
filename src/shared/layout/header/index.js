@@ -2,6 +2,7 @@ import React from 'react';
 import './style.scss';
 import logo from 'assets/logo.svg';
 import profileImg from 'assets/sample_profile.jpg';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -12,7 +13,9 @@ export default function Header() {
                     <h1>Better Timetable</h1>
                 </div>
                 <div className='profile'>
-                    <img src={profileImg} alt="name" />
+                    <Link to="/auth">
+                        <img src={profileImg} alt="name" />
+                    </Link>
                 </div>
             </header>
         </>

@@ -1,6 +1,6 @@
 export default function setTheme() {
     let theme = localStorage.getItem('theme');
-    if (theme !== 'dark') {
+    if (theme === 'dark') {
         document.querySelector('html').setAttribute("data-theme", "dark");
     } else {
         document.querySelector('html').setAttribute("data-theme", "light");
