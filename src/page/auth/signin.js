@@ -17,7 +17,9 @@ export default function SignIn() {
                     <input id="remember-me" type='checkbox' />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
-                <span>Recover password</span>
+                <Link to="/">
+                    <span>Recover password</span>
+                </Link>
             </div>
             <button className='auth_button'>Login</button>
             <p className='or'>or</p>

@@ -22,7 +22,7 @@ export default function SignUp() {
             <button className='auth_button'>SignUp</button>
             <p className='or'>or</p>
             <button className='auth_button auth_google_button'><FcGoogle /><span>Authorize with Google</span></button>
-            <p className='bottom_link'>Already have an account? <Link to="/auth/login">login</Link></p>
+            <p className='bottom_link'>Already have an account? <Link to="/auth">login</Link></p>
         </form>
     )
 }

@@ -42,6 +42,9 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
 *::-webkit-scrollbar-track {
   border-radius: 4px;
 }

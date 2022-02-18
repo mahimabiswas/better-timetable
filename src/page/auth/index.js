@@ -18,7 +18,7 @@ export default function Auth() {
                 </div>
                 <Switch>
                     <Route path="/auth/signup" children={<SignUp />} />
-                    <Route path="/auth/login" children={<SignIn />} />
+                    <Route path="/auth" children={<SignIn />} />
                 </Switch>
             </div>
         </div>
