@@ -4,7 +4,10 @@ export default function TextField({ title, type, placeholder = "", name, styles 
     return (
         <div className="text_field" style={styles}>
             <label htmlFor={name}>{title}</label>
-            <input value={value} name={name} id={name} type={type} placeholder={placeholder} onChange={e => onChange(e)} />
+            {value ?
+                <input value={value} name={name} id={name} type={type} placeholder={placeholder} onChange={e => onChange(e)} />
+                : <input name={name} id={name} type={type} placeholder={placeholder} onChange={e => onChange(e)} />
+            }
         </div>
     )
 

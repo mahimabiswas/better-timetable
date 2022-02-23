@@ -17,8 +17,7 @@ export default function SignIn() {
         e.preventDefault();
         console.log(email, password)
 
-        const response = await axios.post('https://better-timetable-server.herokuapp.com/api/login', {
-            // const response = await axios.post('http://localhost:8080/api/login', {
+        const response = await axios.post('./login', {
             email,
             password
         });
@@ -38,8 +37,8 @@ export default function SignIn() {
             <TextField value={password} onChange={e => setPassword(e.target.value)} styles={{ marginTop: '18px' }} type='password' placeholder="password" title="password" name="login-password" />
             <div className='form-options'>
                 <div>
-                    <input id="remember-me" type='checkbox' />
-                    <label htmlFor="remember-me">Remember me</label>
+                    {/* <input id="remember-me" type='checkbox' /> */}
+                    {/* <label htmlFor="remember-me">Remember me</label> */}
                 </div>
                 <Link to="/">
                     <span>Recover password</span>

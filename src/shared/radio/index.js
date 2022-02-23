@@ -17,20 +17,25 @@ function RadioBtn({ index, name = "", label = "", value = "", onChange, checked 
     );
 }
 
-export default function Radio({ name, options, onChange = () => { }, defaultSelected = null }) {
+export default function Radio({ title = "", name, options, onChange = () => { }, defaultSelected = null }) {
     return (
-        <div className={"radioOptions"}>
-            {options.map((option, i) => (
-                <RadioBtn
-                    label={option.label}
-                    value={option.value}
-                    name={name}
-                    index={i}
-                    checked={i === defaultSelected}
-                    onChange={onChange}
-                />
-            )
-            )}
+        <div className='radio'>
+            {title &&
+                <label htmlFor={name}>{title}</label>
+            }
+            <div className={"radioOptions"}>
+                {options.map((option, i) => (
+                    <RadioBtn
+                        label={option.label}
+                        value={option.value}
+                        name={name}
+                        index={i}
+                        checked={i === defaultSelected}
+                        onChange={onChange}
+                    />
+                )
+                )}
+            </div>
         </div>
     );
 }
