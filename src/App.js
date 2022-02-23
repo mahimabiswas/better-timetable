@@ -8,6 +8,7 @@ import Account from "page/account";
 import Settings from "page/settings";
 import setTheme from "util/theme";
 import Auth from "page/auth";
+import { PrivateRoute } from "util/auth/privateRoute";
 
 function App() {
   useEffect(() => {
@@ -21,10 +22,10 @@ function App() {
           <Layout>
             <Switch>
               <Route exact path="/" children={<TimeTable />} />
-              <Route path="/dashboard" children={<Admin />} />
+              <PrivateRoute path="/dashboard" children={<Admin />} />
               <Route path="/timetable" children={<TimeTable />} />
               <Route path="/notice" children={<Notice />} />
-              <Route path="/account" children={<Account />} />
+              <PrivateRoute path="/account" children={<Account />} />
               <Route path="/settings" children={<Settings />} />
             </Switch>
           </Layout >
