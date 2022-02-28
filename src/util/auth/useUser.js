@@ -20,5 +20,13 @@ export const useUser = () => {
         _setUser({ email, role, id });
     }
 
-    return { user, setUser };
+    const removeUser = () => {
+        localStorage.removeItem('email');
+        localStorage.removeItem('role');
+        localStorage.removeItem('id');
+
+        _setUser(null);
+    }
+
+    return { user, setUser, removeUser };
 }
