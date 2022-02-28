@@ -2,7 +2,6 @@ import React from 'react';
 import './styles.scss';
 
 function RadioBtn({ index, name = "", label = "", value = "", onChange, checked = false }) {
-    console.log(checked)
     return (
         <div className="radioBtn">
             <input
@@ -17,9 +16,9 @@ function RadioBtn({ index, name = "", label = "", value = "", onChange, checked 
     );
 }
 
-export default function Radio({ title = "", name, options, onChange = () => { }, defaultSelected = null }) {
+export default function Radio({ title = "", name, options, onChange = () => { }, defaultSelected = null, styles = {} }) {
     return (
-        <div className='radio'>
+        <div className='radio' style={styles}>
             {title &&
                 <label htmlFor={name}>{title}</label>
             }

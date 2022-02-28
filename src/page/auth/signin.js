@@ -4,28 +4,28 @@ import { RiShieldUserLine } from 'react-icons/ri';
 import { FcGoogle } from 'react-icons/fc';
 import { useState } from 'react';
 import axios from 'axios';
-import { useToken } from 'util/auth/useToken';
+import { useUser } from 'util/auth/useUser';
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [, setToken] = useToken();
+    const { setUser } = useUser();
 
     const history = useHistory();
 
     const handleSignIn = async (e) => {
         e.preventDefault();
-        console.log(email, password)
 
-        const response = await axios.post('./login', {
+        const response = await axios.post('./auth/signin', {
             email,
             password
         });
 
-        const { token } = response.data;
-        setToken(token);
+        setUser(response.data);
+        console.log(response.data)
         history.push('/');
     }
+
     return (
         <form>
             <div className='top'>
@@ -33,8 +33,8 @@ export default function SignIn() {
                 <h2>Hello Again!</h2>
                 <p>Login with your email and password to get authorized</p>
             </div>
-            <TextField value={email} onChange={e => setEmail(e.target.value)} type='email' placeholder="itsme@some.org" title="email" name="login-email" />
-            <TextField value={password} onChange={e => setPassword(e.target.value)} styles={{ marginTop: '18px' }} type='password' placeholder="password" title="password" name="login-password" />
+            <TextField value={email} onChange={setEmail} type='email' placeholder="itsme@some.org" title="email" name="login-email" />
+            <TextField value={password} onChange={setPassword} styles={{ marginTop: '18px' }} type='password' placeholder="password" title="password" name="login-password" />
             <div className='form-options'>
                 <div>
                     {/* <input id="remember-me" type='checkbox' /> */}

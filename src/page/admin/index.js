@@ -12,6 +12,9 @@ export default function Admin() {
                 <Route exact path={path}>
                     <Main />
                 </Route>
+                <Route path={`${path}/staff/:staffId`}>
+                    <Staff />
+                </Route>
                 <Route path={`${path}/staff`}>
                     <Staff />
                 </Route>

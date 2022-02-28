@@ -2,7 +2,7 @@ import profileImg from 'assets/sample_profile.jpg';
 import Button from 'shared/button';
 import { FaPlus } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
-
+import './styles.scss';
 export default function StaffList({ showAddNew = true }) {
     const history = useHistory();
 
@@ -15,9 +15,9 @@ export default function StaffList({ showAddNew = true }) {
                         <Button label="Add New Staff" icon={<FaPlus />} onClick={() => history.push('/dashboard/staff')} />
                     }
                 </div>
-                <div className="teachers">
+                <div className="staffs">
                     {[...Array(20)].map(c => (
-                        <div className="teacher" key={c}>
+                        <div className="staff" key={c}>
                             <div className="details">
                                 <img src={profileImg} alt="name" />
                                 <div>
@@ -25,10 +25,11 @@ export default function StaffList({ showAddNew = true }) {
                                     <p className="email">preti.kulkarni@sicsr.ac.in</p>
                                 </div>
                             </div>
-                            <p className="class_count">25 classes</p>
-                            <div className="show_on_hov">
-                                <Button label="Remove" />
-                            </div>
+                            <p className={`role admin`} >admin</p>
+                            <p className="class_count">24 classes</p>
+                            {/* <div className="show_on_hov">
+                                <Button label="manage" />
+                            </div> */}
                             {/* <div>remove</div> */}
                         </div>
                     ))}

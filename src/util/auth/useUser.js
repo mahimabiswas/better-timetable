@@ -1,26 +1,24 @@
-import { useState, useEffect } from 'react';
-import { useToken } from './useToken';
+import { useState } from 'react';
 
 export const useUser = () => {
-    const [token] = useToken();
-
-    const getPayloadFromToken = token => {
-        const encodedPayload = token.split('.')[1];
-        return JSON.parse(atob(encodedPayload));
-    }
-
-    const [user, setUser] = useState(() => {
-        if (!token) return null;
-        return getPayloadFromToken(token);
+    const [user, _setUser] = useState(() => {
+        const email = localStorage.getItem('email');
+        const role = localStorage.getItem('role');
+        const id = localStorage.getItem('id')
+        if (email && role && id) {
+            return ({ email, role, id });
+        } else {
+            return (null);
+        }
     });
 
-    useEffect(() => {
-        if (!token) {
-            setUser(null);
-        } else {
-            setUser(getPayloadFromToken(token));
-        }
-    }, [token]);
+    const setUser = ({ email, role, id }) => {
+        localStorage.setItem('email', email);
+        localStorage.setItem('role', role);
+        localStorage.setItem('id', id);
 
-    return user;
+        _setUser({ email, role, id });
+    }
+
+    return { user, setUser };
 }
