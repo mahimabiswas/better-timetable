@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+// this file is to handel user related authentication and authorization.
+
 export const useUser = () => {
     const [user, _setUser] = useState(() => {
         const email = localStorage.getItem('email');
