@@ -1,10 +1,10 @@
 import axios from "axios";
 import Button from "shared/button";
 import TextField from "shared/textfield";
-import { useUser } from '../../util/auth/useUser';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import './styles.scss';
+import { useUser } from 'util/auth/useUser';
 
 export default function Account() {
     const { removeUser } = useUser()
@@ -17,11 +17,12 @@ export default function Account() {
             alert(e.response.data)
         })
     }
+    const { user } = useUser();
 
-    const [name, setName] = useState('Anish');
-    const [designation, setDesignation] = useState('Teacher');
-    const [email, setEmail] = useState('alpha@beta.com');
-    const [contactNumber, setContactNumber] = useState('7845122154');
+    const [name, setName] = useState(user.userDetails.name);
+    const [designation, setDesignation] = useState(user.userDetails.role === 0 ? 'Admin' : user.userDetails.role === 1 ? 'Teacher' : user.userDetails.role === 2 ? 'visiting' : 'viewer');
+    const [email, setEmail] = useState(user.userDetails.email);
+    const [contactNumber, setContactNumber] = useState(user.userDetails.contactNumber || 'not set');
 
     return (
         <main>
@@ -34,8 +35,8 @@ export default function Account() {
             </div>
             <div className="account">
                 <TextField value={name} onChange={setName} type='text' placeholder="itsme@some.org" title="name" name="account-name" styles={{ marginBottom: '12px' }} />
-                <TextField value={designation} onChange={setDesignation} type='text' placeholder="professor" title="role" name="account-role" styles={{ marginBottom: '12px' }} />
-                <TextField value={email} onChange={setEmail} type='email' placeholder="itsme@some.org" title="email" name="account-email" styles={{ marginBottom: '12px' }} />
+                <TextField value={designation} onChange={setDesignation} disabled type='text' placeholder="professor" title="role" name="account-role" styles={{ marginBottom: '12px' }} />
+                <TextField value={email} onChange={setEmail} type='email' disabled={true} placeholder="itsme@some.org" title="email" name="account-email" styles={{ marginBottom: '12px' }} />
                 <TextField value={contactNumber} onChange={setContactNumber} type='text' placeholder="0000000000" title="contact number" name="account-contact-number" styles={{ marginBottom: '36px' }} />
                 <Button size="medium" label='Update Changes' />
             </div>

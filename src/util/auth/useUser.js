@@ -4,28 +4,25 @@ import { useState } from 'react';
 
 export const useUser = () => {
     const [user, _setUser] = useState(() => {
-        const email = localStorage.getItem('email');
-        const role = localStorage.getItem('role');
+        const userDetails = JSON.parse(localStorage.getItem('userDetails') || '{}');
         const id = localStorage.getItem('id')
-        if (email && role && id) {
-            return ({ email, role, id });
+        if (id && userDetails) {
+            return ({ id, userDetails });
         } else {
             return (null);
         }
     });
 
-    const setUser = ({ email, role, id }) => {
-        localStorage.setItem('email', email);
-        localStorage.setItem('role', role);
+    const setUser = ({ _id: id, userDetails }) => {
         localStorage.setItem('id', id);
+        localStorage.setItem('userDetails', JSON.stringify(userDetails));
 
-        _setUser({ email, role, id });
+        _setUser({ id, userDetails });
     }
 
     const removeUser = () => {
-        localStorage.removeItem('email');
-        localStorage.removeItem('role');
         localStorage.removeItem('id');
+        localStorage.removeItem('userDetails');
 
         _setUser(null);
     }

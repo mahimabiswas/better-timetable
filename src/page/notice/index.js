@@ -6,7 +6,7 @@ import profileImg from 'assets/sample_profile.jpg';
 import { AiOutlinePushpin, AiFillPushpin } from 'react-icons/ai'
 
 function Notice({ key }) {
-    console.log(key)
+    // console.log(key)
     const [pinned, setPinned] = useState(false);
     return (
         <div className="notice" key={key}>
@@ -14,7 +14,7 @@ function Notice({ key }) {
             <div className="author">
                 <img src={profileImg} alt="hi" />
                 <div className="details">
-                    <p className="name">Mridula Chhetri</p>
+                    <p className="name">Nisha</p>
                     <p className="time">2 days ago</p>
                 </div>
             </div>
