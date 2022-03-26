@@ -3,10 +3,32 @@
 export default function setTheme() {
     let theme = localStorage.getItem('theme');
     if (theme === 'dark') {
-        document.querySelector('html').setAttribute("data-theme", "dark");
+        setDarkTheme();
+    } else if (theme == 'light') {
+        setLightTheme();
     } else {
-        document.querySelector('html').setAttribute("data-theme", "light");
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            setDarkTheme();
+        } else {
+            setLightTheme();
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches === "dark") {
+                setDarkTheme();
+            } else {
+                setLightTheme();
+            }
+        });
     }
+}
+
+function setLightTheme() {
+    document.querySelector('html').setAttribute("data-theme", "light");
+}
+
+function setDarkTheme() {
+    document.querySelector('html').setAttribute("data-theme", "dark");
 }
 
 export function changeTheme(value) {
@@ -15,5 +37,5 @@ export function changeTheme(value) {
 }
 
 export function getTheme() {
-    return localStorage.getItem('theme') || 'light';
+    return localStorage.getItem('theme') || 'system';
 }

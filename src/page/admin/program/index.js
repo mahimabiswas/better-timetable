@@ -5,7 +5,7 @@ import data from 'data/program.json';
 import { BsPeopleFill } from 'react-icons/bs';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { MdClass } from 'react-icons/md';
-import { AiFillDelete } from 'react-icons/ai';
+import { AiOutlineDelete } from 'react-icons/ai';
 import './styles.scss';
 
 export default function Program() {
@@ -23,7 +23,6 @@ export default function Program() {
             </div>
             <div className='program-dashboard'>
                 <div className='program'>
-
                     <div className='program-details'>
                         <div className='stats'>
                             <div className="stat"><BsPeopleFill /> <p><b>{3}</b> batches</p></div>
@@ -65,7 +64,7 @@ export default function Program() {
                 <div className='courses'>
                     {[...Array(23)].map(() => (
                         <div className='course'>
-                            <span><AiFillDelete /></span>
+                            <span><AiOutlineDelete /></span>
                             <i><MdClass /></i>
                             <h3>SSWT</h3>
                         </div>
