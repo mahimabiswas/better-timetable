@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Button from 'shared/button';
 import './styles.scss';
 import { FaShare } from 'react-icons/fa';
+import { MdClose } from 'react-icons/md';
+import { BsCheck } from 'react-icons/bs';
 import date from 'date-and-time';
 import ordinal from 'date-and-time/plugin/ordinal';
 // import convertTime from 'convert-time';
@@ -132,6 +134,27 @@ export default function TimeTable() {
                                     gridColumnEnd: getColCount(_class.to)
                                 }}><p>{_class.label}</p></div>
                         ))} */}
+                    </div>
+                </div>
+            </div>
+            <div className='drawer'>
+                <div className='overlay' />
+                <div className='content'>
+                    <div className='header'>
+                        <h3>Select electives</h3>
+                        <div className='close'><MdClose /></div>
+                    </div>
+                    <div className='subjectList'>
+                        <div className='checked'><label>Machine Learning Grp - 1</label><span className='checked'><BsCheck /></span></div>
+                        <div><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div className='checked'><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div className='checked'><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div className='checked'><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div className='checked'><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div className='checked'><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
+                        <div><label>Machine Learning Grp - 1</label><span><BsCheck /></span></div>
                     </div>
                 </div>
             </div>
