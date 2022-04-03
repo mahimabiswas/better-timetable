@@ -4,7 +4,7 @@ export default function setTheme() {
     let theme = localStorage.getItem('theme');
     if (theme === 'dark') {
         setDarkTheme();
-    } else if (theme == 'light') {
+    } else if (theme === 'light') {
         setLightTheme();
     } else {
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
