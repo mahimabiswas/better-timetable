@@ -22,12 +22,19 @@ function Top({ setOpenElectiveSelector }) {
             <div className='left'>
                 <div className='meta'>
                     <p>{date.format(new Date(), pattern)} <div><BsCalendarEvent /></div></p>
-                    <h2>BCA Sem 3 Div A <div>
-                        <Button styles={{ marginLeft: '4px' }} onClick={() => { setOpenElectiveSelector(true) }} icon={<VscListSelection />} />
-                    </div></h2>
+                    <h2>BCA Sem 3 Div A
+                        <div className='select_elective' onClick={() => { setOpenElectiveSelector(true) }}>
+                            <VscListSelection />
+                        </div>
+                    </h2>
                 </div>
             </div>
+            {/* <div> */}
+            {/* <div className='select_on_mobile'>
+            <Button styles={{ marginBottom: '4px' }} onClick={() => { setOpenElectiveSelector(true) }} icon={<VscListSelection />} />
+                </div> */}
             <Button label="Share" icon={<FaShare />} />
+            {/* </div> */}
         </div>
     )
 }

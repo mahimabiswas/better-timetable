@@ -3,18 +3,28 @@
 .top {
   .left {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     .meta {
       p,
       h2 {
         display: flex;
-        align-items: center;
         div {
           margin-left: 12px;
         }
       }
+      h2 div {
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
   }
+  // .select_on_mobile {
+  //   display: none;
+  //   @include small {
+  //     display: unset;
+  //   }
+  // }
 }
 
 main {
