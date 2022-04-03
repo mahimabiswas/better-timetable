@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useRouteMatch } from 'react-router-dom';
 import Button from 'shared/button';
 import { FaPlus } from 'react-icons/fa';
 import data from 'data/program.json';
@@ -10,6 +10,8 @@ import './styles.scss';
 
 export default function Program() {
     let { program } = useParams();
+    let { url } = useRouteMatch();
+
     return (
         <main>
             <div className='top'>
@@ -25,35 +27,30 @@ export default function Program() {
                 <div className='program'>
                     <div className='program-details'>
                         <div className='stats'>
-                            <div className="stat"><BsPeopleFill /> <p><b>{3}</b> batches</p></div>
+                            <div className="stat"><BsPeopleFill /> <p><b>{3}</b> semesters</p></div>
                             <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
                             <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
                         </div>
                     </div>
                     <div className='batches'>
+                        <Link to={`${url}/sem1`}>
+                            <div className='batch'>
+                                <h3>Sem 1</h3>
+                                <div className='stats'>
+                                    <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
+                                    <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
+                                </div>
+                            </div>
+                        </Link>
                         <div className='batch'>
-                            <h3>Div A</h3>
+                            <h3>Sem 2</h3>
                             <div className='stats'>
                                 <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
                                 <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
                             </div>
                         </div>
                         <div className='batch'>
-                            <h3>Div B</h3>
-                            <div className='stats'>
-                                <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
-                                <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
-                            </div>
-                        </div>
-                        <div className='batch'>
-                            <h3>Div C</h3>
-                            <div className='stats'>
-                                <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
-                                <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>
-                            </div>
-                        </div>
-                        <div className='batch'>
-                            <h3>Div D</h3>
+                            <h3>Sem 3</h3>
                             <div className='stats'>
                                 <div className="stat"><MdClass /> <p><b>{12}</b> classes</p></div>
                                 <div className="stat"><FaChalkboardTeacher /> <p><b>{21}</b> teachers</p></div>

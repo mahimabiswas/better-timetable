@@ -21,8 +21,8 @@ export default function StaffList({ showAddNew = true }) {
                             <div className="details">
                                 <img src={profileImg} alt="name" />
                                 <div>
-                                    <p className="name">Dr. Preti Kularni</p>
-                                    <p className="email">preti.kulkarni@sicsr.ac.in</p>
+                                    <p className="name">Dr. Janet Doe</p>
+                                    <p className="email">janet.doe@sicsr.ac.in</p>
                                 </div>
                             </div>
                             <p className={`role admin`} >admin</p>

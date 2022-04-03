@@ -1,6 +1,7 @@
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Main from "./main";
 import Program from "./program";
+import Scheduler from "./program/scheduler";
 import Staff from "./staff";
 
 export default function Admin() {
@@ -17,6 +18,9 @@ export default function Admin() {
                 </Route>
                 <Route path={`${path}/staff`}>
                     <Staff />
+                </Route>
+                <Route path={`${path}/:program/:batch`}>
+                    <Scheduler />
                 </Route>
                 <Route path={`${path}/:program`}>
                     <Program />

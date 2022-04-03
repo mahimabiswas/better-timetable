@@ -21,6 +21,9 @@ button {
   span {
     margin-left: 8px;
     display: flex;
+    &.noLabel {
+      margin-left: 0;
+    }
   }
   &.medium {
     padding: 12px 16px;
