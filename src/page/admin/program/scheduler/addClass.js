@@ -82,6 +82,18 @@ function SelectDays() {
 
 export default function AddClass({ open, setOpen }) {
     const [scheduleType, setScheduleType] = useState(0);
+
+    /**
+     * subject
+     * faculty
+     * 
+     */
+
+
+
+
+
+
     return (
         <>
             <Modal

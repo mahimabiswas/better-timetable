@@ -1,6 +1,7 @@
 .program-dashboard {
   display: grid;
-  grid-template-columns: minmax(600px, 1fr) 1fr;
+  // grid-template-columns: minmax(600px, 1fr) 1fr;
+  grid-template-columns: 1fr 440px;
   height: calc(100vh - 200px);
   .program-details {
     margin-bottom: 8px;
@@ -15,6 +16,9 @@
     }
   }
   .batches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
     .batch {
       width: 100%;
       margin: 12px 0;
