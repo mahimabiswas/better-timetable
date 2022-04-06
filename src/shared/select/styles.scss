@@ -36,3 +36,12 @@
     }
   }
 }
+
+.btt__multi-value {
+  background: var(--dark) !important;
+  border-radius: 2px;
+}
+.btt__multi-value__label,
+.btt__multi-value__remove {
+  color: var(--white) !important;
+}
