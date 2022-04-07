@@ -1,4 +1,5 @@
 import { useParams, Link, useRouteMatch } from 'react-router-dom';
+import { useState } from 'react';
 import Button from 'shared/button';
 import { FaPlus } from 'react-icons/fa';
 import data from 'data/program.json';
@@ -7,10 +8,14 @@ import { FaChalkboardTeacher } from 'react-icons/fa';
 import { MdClass } from 'react-icons/md';
 import './styles.scss';
 import SubjectList from './subject';
+import AddBatch from './addBatch';
 
 export default function Program() {
     let { program } = useParams();
     let { url } = useRouteMatch();
+
+    const [openAddBatch, setOpenAddBatch] = useState(false);
+
 
     return (
         <main>
@@ -20,7 +25,7 @@ export default function Program() {
                     <p>{data[program].desc}</p>
                 </div>
                 <div className="actions">
-                    <Button label="Add New Batch" icon={<FaPlus />} />
+                    <Button label="Add New Batch" icon={<FaPlus />} onClick={() => setOpenAddBatch(true)} />
                 </div>
             </div>
             <div className='program-dashboard'>
@@ -90,6 +95,7 @@ export default function Program() {
                     ))} */}
                 </div>
             </div>
+            <AddBatch open={openAddBatch} setOpen={setOpenAddBatch} />
         </main>
     )
 } 
