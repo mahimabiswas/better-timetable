@@ -6,14 +6,8 @@ import profileImg from 'assets/sample_profile.jpg';
 import { AiOutlinePushpin, AiFillPushpin } from 'react-icons/ai'
 
 function Notice({ key }) {
-    // console.log(key)
-
 
     const [pinned, setPinned] = useState(false);
-
-    // useEffect(() => {
-
-    // }, [third])
 
 
     return (
@@ -32,8 +26,10 @@ function Notice({ key }) {
                 <p>Tu autem, si tibi illa probabantur, cur non propriis verbis ea tenebas? <mark>Mihi, inquam, qui te id ipsum rogavi?</mark> Quamquam ex omnibus philosophis Stoici plurima novaverunt, Zenoque, eorum princeps, non tam rerum inventor fuit quam verborum novorum. Atqui haec patefactio quasi rerum opertarum, cum quid quidque sit aperitur, definitio est. Nunc omni virtuti vitium contrario nomine opponitur. An me, inquam, nisi te audire vellem, censes haec dicturum fuisse? </p>
             </div>
         </div>
-    )
+    );
 }
+
+
 export default function Board() {
     return (
         <main>

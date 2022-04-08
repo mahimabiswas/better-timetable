@@ -13,8 +13,6 @@ export default function AddBatch({ open, setOpen }) {
             shortName,
             longName,
         }
-
-        console.log(payload)
     }
 
     return (
