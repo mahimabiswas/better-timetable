@@ -4,20 +4,13 @@ import './addClass.scss';
 import TextField from 'shared/textfield';
 import Select from 'shared/select';
 import Radio from 'shared/radio';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'shared/button';
+import axios from 'axios';
 
 
-function SelectSubject() {
-    const options = [
-        { value: 'iot', label: 'Internet Of Things' },
-        { value: 'ml', label: 'Machine Learning' },
-        { value: 'nse', label: 'Network Security Essentials' },
-        { value: 'ije', label: 'Introduction to Java Enterprise Edition' },
-        { value: 'ctit', label: 'Current Trends and Practices in IT' },
-        { value: 'vac', label: 'Value Added Course' },
-        { value: 'sswt', label: 'Server Site Web Technology' },
-    ];
+function SelectSubject({ subjectList }) {
+    const options = subjectList.map(subject => ({ value: subject._id, label: subject.longName }));
 
     const [subject, setSubject] = useState(null);
 
@@ -29,15 +22,8 @@ function SelectSubject() {
     )
 }
 
-function SelectFaculty() {
-    const options = [
-        { value: 1, label: 'Dr. Rajashree' },
-        { value: 2, label: 'Prethamesh Lahande' },
-        { value: 3, label: 'Harsh Kahate' },
-        { value: 4, label: 'Ayush Chatterjee' },
-        { value: 5, label: 'Mahima' },
-        { value: 6, label: 'Kushagra' },
-    ];
+function SelectFaculty({ staffList }) {
+    const options = staffList.map(staff => ({ value: staff.id, label: staff.name }));
 
     const [faculty, setFaculty] = useState(null);
 
@@ -80,7 +66,7 @@ function SelectDays() {
 
 
 
-export default function AddClass({ open, setOpen }) {
+export default function AddClass({ open, setOpen, programId, batchId }) {
     const [scheduleType, setScheduleType] = useState(0);
 
     /**
@@ -89,7 +75,21 @@ export default function AddClass({ open, setOpen }) {
      * 
      */
 
+    const [staffList, setStaffList] = useState([]);
+    const [subjectList, setSubjectList] = useState([]);
+    useEffect(() => {
+        if (programId && batchId) {
+            axios.get('/staff/list').then(response => {
+                setStaffList(response.data.staffs);
+            });
 
+            axios.get('/subject/get/?programId=' + programId).then(response => {
+                setSubjectList(response.data.subjects);
+            })
+        }
+
+
+    }, [programId, batchId]);
 
 
 
@@ -122,8 +122,8 @@ export default function AddClass({ open, setOpen }) {
                     <div className='close' onClick={() => { setOpen(false) }}><MdClose /></div>
                 </div>
                 <div className='form'>
-                    <SelectSubject />
-                    <SelectFaculty />
+                    <SelectSubject subjectList={subjectList} />
+                    <SelectFaculty staffList={staffList} />
                     <Radio title='subject type'
                         options={[{ value: '1', label: 'core' }, { value: '2', label: 'elective' }]}
                         name="subject-type" defaultSelected={0} onChange={(e) => { console.log(e) }}
