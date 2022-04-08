@@ -7,7 +7,15 @@ import { AiOutlinePushpin, AiFillPushpin } from 'react-icons/ai'
 
 function Notice({ key }) {
     // console.log(key)
+
+
     const [pinned, setPinned] = useState(false);
+
+    // useEffect(() => {
+
+    // }, [third])
+
+
     return (
         <div className="notice" key={key}>
             <span className="pin" onClick={() => setPinned(!pinned)}>{pinned ? <AiFillPushpin /> : <AiOutlinePushpin />}</span>

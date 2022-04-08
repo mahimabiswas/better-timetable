@@ -4,6 +4,7 @@ import TextField from 'shared/textfield';
 import { useState } from 'react';
 import Radio from 'shared/radio';
 import Button from 'shared/button';
+import axios from 'axios';
 
 export default function AddSubject({ open, setOpen }) {
     const [shortName, setShortName] = useState("");
@@ -11,14 +12,15 @@ export default function AddSubject({ open, setOpen }) {
     const [subjectType, setSubjectType] = useState(0);
 
 
-    function submit() {
+    async function submit() {
         const payload = {
             shortName,
             longName,
             subjectType
         }
+        const response = await axios.post('subject/add', payload);
 
-        console.log(payload)
+        console.log(response)
     }
 
     return (
