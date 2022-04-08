@@ -3,16 +3,19 @@ import { MdClose } from 'react-icons/md';
 import TextField from 'shared/textfield';
 import { useState } from 'react';
 import Button from 'shared/button';
+import axios from "axios";
 
 export default function AddBatch({ open, setOpen }) {
     const [shortName, setShortName] = useState("");
     const [longName, setLongName] = useState("");
 
-    function submit() {
+   async function submit() {
         const payload = {
             shortName,
             longName,
         }
+        const response = await axios.post('/batch/add', payload);
+        console.log(response);
     }
 
     return (
