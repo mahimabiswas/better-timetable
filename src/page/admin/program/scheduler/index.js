@@ -4,9 +4,11 @@ import { FaPlus } from 'react-icons/fa';
 import Table from "shared/table";
 import { useState } from "react";
 import AddClass from "./addClass";
+import { useParams } from 'react-router-dom';
 
 export default function Scheduler() {
     const [openAddClass, setOpenAddClass] = useState(false);
+    const { program, batch } = useParams();
 
     return (
         <main>
@@ -19,7 +21,7 @@ export default function Scheduler() {
                 <Button label="Update" icon={<HiOutlineRefresh />} />
             </div>
             <div className="scheduler">
-                <AddClass open={openAddClass} setOpen={setOpenAddClass} />
+                <AddClass open={openAddClass} setOpen={setOpenAddClass} programId={program} batchId={batch} />
                 <Table />
             </div>
         </main>

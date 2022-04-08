@@ -1,32 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'shared/button';
 import { FaPlus } from 'react-icons/fa';
-// import { useHistory } from 'react-router-dom';
 import './styles.scss';
 import AddSubject from './addSubject';
-export default function SubjectList() {
-    // const history = useHistory();
+import axios from 'axios';
+export default function SubjectList({ programId }) {
     const [openAddSubject, setOpenAddSubject] = useState(false);
+    const [subjects, setSubjects] = useState([]);
 
+    useEffect(() => {
+        axios.get('/subject/get/?programId=' + programId).then(response => {
+            setSubjects(response.data.subjects);
+        })
+    })
     return (
         <>
             <section className="right">
                 <div className="section_header">
                     <h3 className="section_title">Subjects</h3>
-                    {/* {showAddNew && */}
                     <Button label="Add New Subject" icon={<FaPlus />} onClick={() => { setOpenAddSubject(true) }} />
-                    {/* } */}
                 </div>
                 <div className="subjects">
-                    {[...Array(20)].map(c => (
-                        <div className="subject" key={c}>
+                    {subjects.length && subjects.map(subject => (
+                        <div className="subject" key={subject._id}>
                             <div className="details">
                                 <div>
-                                    <p className="name">SSWT</p>
-                                    <p className="desc">Server Side Web Technology</p>
+                                    <p className="name">{subject.shortName}</p>
+                                    <p className="desc">{subject.longName}</p>
                                 </div>
                             </div>
-                            <p className={`type elective`} >elective</p>
+                            <p className={`type ${subject.type === 0 ? 'core' : 'elective'}`} >{subject.type === 0 ? 'core' : 'elective'}</p>
                             <div className="show_on_hov">
                                 <Button label="remove" />
                             </div>
@@ -34,7 +37,7 @@ export default function SubjectList() {
                     ))}
                 </div>
             </section>
-            <AddSubject open={openAddSubject} setOpen={setOpenAddSubject} />
+            <AddSubject open={openAddSubject} setOpen={setOpenAddSubject} programId={programId} />
         </>
     )
 }

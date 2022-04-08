@@ -1,5 +1,6 @@
 import MainModal from "react-modal";
 import { MdClose } from 'react-icons/md';
+import './styles.scss';
 
 export default function Modal({ open, setOpen, header, children }) {
     return (
@@ -28,7 +29,7 @@ export default function Modal({ open, setOpen, header, children }) {
                 <h3>{header}</h3>
                 <div className='close' onClick={() => { setOpen(false) }}><MdClose /></div>
             </div>
-            <div className='modal_body' style={{ display: 'unset', margin: '0 16px' }}>
+            <div className='modal_body'>
                 {children}
             </div>
         </MainModal>
