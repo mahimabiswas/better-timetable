@@ -3,7 +3,7 @@ import { HiOutlineRefresh } from 'react-icons/hi';
 import { FaPlus } from 'react-icons/fa';
 import Table from "shared/table";
 import { useState } from "react";
-import AddClass from "./addClass";
+import AddLecture from "./addLecture";
 import { useParams } from 'react-router-dom';
 
 export default function Scheduler() {
@@ -21,7 +21,7 @@ export default function Scheduler() {
                 <Button label="Update" icon={<HiOutlineRefresh />} />
             </div>
             <div className="scheduler">
-                <AddClass open={openAddClass} setOpen={setOpenAddClass} programId={program} batchId={batch} />
+                <AddLecture open={openAddClass} setOpen={setOpenAddClass} programId={program} batchId={batch} />
                 <Table />
             </div>
         </main>

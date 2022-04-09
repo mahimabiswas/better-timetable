@@ -44,5 +44,5 @@ export default function SignUp() {
             <button className='auth_button auth_google_button'><FcGoogle /><span>Authorize with Google</span></button>
             <p className='bottom_link'>Already have an account? <Link to="/auth">login</Link></p>
         </form>
-    )
+    );
 }
