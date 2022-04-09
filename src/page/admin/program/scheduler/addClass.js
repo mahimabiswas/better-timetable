@@ -67,13 +67,6 @@ function SelectDays() {
 
 
 export default function AddClass({ open, setOpen, programId, batchId }) {
-    const [scheduleType, setScheduleType] = useState(0);
-
-    /**
-     * subject
-     * faculty
-     * 
-     */
 
     const [staffList, setStaffList] = useState([]);
     const [subjectList, setSubjectList] = useState([]);
@@ -87,11 +80,30 @@ export default function AddClass({ open, setOpen, programId, batchId }) {
                 setSubjectList(response.data.subjects);
             })
         }
-
-
     }, [programId, batchId]);
 
+    const [scheduleType, setScheduleType] = useState(0);
+    const [staff, setStaff] = useState('');
+    const [subject, setSubject] = useState('');
+    const [days, setDays] = useState([]);
+    const [date, setDate] = useState(null);
+    const [from, setFrom] = useState(null);
+    const [to, setTo] = useState(null);
+    const [division, setDivision] = useState('');
+    const [group, setGroup] = useState(null);
 
+
+    const [dataVerified, setDataVerified] = useState(false);
+    // TODO: Kushagra
+    useEffect(() => {
+
+        if (scheduleType > 1) {
+            setDataVerified(false);
+        }
+
+
+
+    }, [scheduleType, staff, subject, days, date])
 
 
     return (
