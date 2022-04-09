@@ -13,17 +13,25 @@ export default function SignIn() {
 
     const history = useHistory();
 
-    const handleSignIn = async (e) => {
+    const handleSignIn = (e) => {
         e.preventDefault();
 
-        const response = await axios.post('./auth/signin', {
+    axios.post('./auth/signin', {
             email,
             password
-        });
+        }).then((res) => {
+            
+           
+                setUser(res.data);
+                history.push('/');
+            
+           
+        }).catch(e => {
+            alert(e.response.data.error)
+        })
 
-        setUser(response.data);
-        console.log(response.data)
-        history.push('/');
+        
+       
     }
 
     return (
