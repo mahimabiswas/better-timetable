@@ -11,18 +11,24 @@ export default function SignUp() {
 
     const history = useHistory();
 
-    const handleSignUp = async (e) => {
+    const handleSignUp =  (e) => {
         e.preventDefault();
 
-        const response = await axios.post('./auth/signup', {
+           axios.post('./auth/signup', {
             email,
             password
         }).then((res) => {
-           console.log(res) 
-        });
+            
+           
+            history.push('/auth');
+            
+       
+    }).catch(e => {
+        alert(e.response.data.error)
+    })
 
-        console.log(response.data);
-        history.push('/auth');
+     
+      
     }
 
 

@@ -12,7 +12,7 @@ export default function SubjectList({ programId }) {
         axios.get('/subject/get/?programId=' + programId).then(response => {
             setSubjects(response.data.subjects);
         })
-    })
+    },[programId])
     return (
         <>
             <section className="right">

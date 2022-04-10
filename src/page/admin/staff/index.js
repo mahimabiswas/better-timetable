@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams,useHistory } from 'react-router-dom';
 import Button from "shared/button";
 import StaffList from "./list";
 import TextField from "shared/textfield";
@@ -15,7 +15,7 @@ function AddStaff() {
     const [email2, setEmail2] = useState('');
     const [role, setRole] = useState(3);
     const [noticePermission, setNoticePermission] = useState(2);
-
+const history=useHistory()
     const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
@@ -28,7 +28,8 @@ function AddStaff() {
             const response = await axios.post('./staff/add', {
                 name, email, role, noticePermission
             });
-            alert(response.data.id)
+            alert(response.data.id + "data added in the database")
+            history.push("/dashboard")
         } catch (e) {
             alert(e.response.status + " - " + e.response.data)
         }

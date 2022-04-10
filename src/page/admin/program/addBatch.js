@@ -13,10 +13,12 @@ export default function AddBatch({ open, setOpen, programId }) {
             shortName,
             longName,
             programId
-        }).then(() => {
+        }).then((res) => {
+            alert("Batch Added to the Database id is="+res.data.id)
             setOpen(false);
         }).catch(e => {
-            console.log(e);
+            alert(e.response.data.err);
+            setOpen(false);
         })
     }
 

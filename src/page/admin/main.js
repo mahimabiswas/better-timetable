@@ -43,7 +43,13 @@ function AddNewProgram({ open, setOpen }) {
             shortName,
             longName,
         };
-        const response = await axios.post('/program/add', payload);
+        const response = await axios.post('/program/add', payload).then((res) => {
+            alert("Program Added to the course")
+            setOpen(false)
+        }).catch(e => {
+            alert(e.response.data.err)
+            setOpen(false)
+        })
         console.log(response);
     }
 
