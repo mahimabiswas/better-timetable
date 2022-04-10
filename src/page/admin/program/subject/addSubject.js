@@ -11,17 +11,24 @@ export default function AddSubject({ open, setOpen, programId }) {
     const [subjectType, setSubjectType] = useState(0);
 
 
-    async function submit() {
+    function submit() {
         const payload = {
             shortName,
             longName,
             subjectType,
             programId
         }
+        console.log(payload)
         // REVIEW:
-        const response = await axios.post('subject/add', payload);
+        axios.post('subject/add', payload).then((res) => {
+            alert("Subject added in the database")
+            setOpen(false)
+        }).catch(e => {
+            alert(e.response.data.err)
+            setOpen(false)
+     })
 
-        console.log(response)
+       
     }
 
     return (
