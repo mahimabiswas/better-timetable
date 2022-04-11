@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import date from 'date-and-time';
 import ordinal from 'date-and-time/plugin/ordinal';
 import './styles.scss';
+import randomColor from 'randomcolor';
 
 date.plugin(ordinal);
 const times = ["00"];
@@ -16,18 +17,18 @@ for (let t = 30, ti = true; t <= 2400; t += 30, ti = !ti) {
     }
 }
 
-// function getColCount(time) {
-//     let ti = true, i = 1, t = 0;
-//     while (t < time) {
-//         ti = !ti
-//         t += 30;
-//         if (ti) {
-//             t += 40;
-//         }
-//         i++;
-//     }
-//     return i;
-// }
+function getColCount(time) {
+    let ti = true, i = 1, t = 0;
+    while (t < time) {
+        ti = !ti
+        t += 30;
+        if (ti) {
+            t += 40;
+        }
+        i++;
+    }
+    return i;
+}
 
 function convertTime(time) {
     if (time.length < 4) {
@@ -51,7 +52,7 @@ function getPosition() {
     return pos;
 }
 
-export default function Table() {
+export default function Table({ schedule }) {
     const [currentTime, setCurrentTime] = useState(getPosition);
 
     const table = useRef();
@@ -89,28 +90,51 @@ export default function Table() {
                 </div>
                 <div className='classes'>
                     {/* temp */}
-                    <div className='class class1'>Machine Learning Grp 1</div>
+                    {/* <div className='class class1'>Machine Learning Grp 1</div>
                     <div className='class class2'>Blockchain Grp 1</div>
                     <div className='class class3'>Server Side Web Technology</div>
-                    <div className='class class4'>IOT Grp 1</div>
+                    <div className='class class4'>IOT Grp 1</div> */}
 
-                    {/* {schedule.map(_class => (
-                            <div className='class'
-                                style={{
-                                    gridRow: _class.day,
-                                    background: randomColor({
-                                        seed: _class.label,
-                                        luminosity: 'dark'
-                                    }),
-                                    boxShadow: `0px 4px 9px ${randomColor({
-                                        seed: _class.label,
-                                        luminosity: 'dark',
-                                        format: 'hex'
-                                    })}99`,
-                                    gridColumnStart: getColCount(_class.from),
-                                    gridColumnEnd: getColCount(_class.to)
-                                }}><p>{_class.label}</p></div>
-                        ))} */}
+                    {schedule.map(_class => {
+                        if (_class.day.length > 1) {
+                            return _class.day.map(d => (
+                                <div className='class'
+                                    style={{
+                                        gridRow: d,
+                                        background: randomColor({
+                                            seed: _class.longName,
+                                            luminosity: 'dark'
+                                        }),
+                                        boxShadow: `0px 4px 9px ${randomColor({
+                                            seed: _class.longName,
+                                            luminosity: 'dark',
+                                            format: 'hex'
+                                        })}99`,
+                                        gridColumnStart: getColCount(_class.time.from),
+                                        gridColumnEnd: getColCount(_class.time.to)
+                                    }}><p>{_class.longName}</p></div>
+                            )
+                            );
+                        } else {
+                            return (
+                                <div className='class'
+                                    style={{
+                                        gridRow: _class.day[0],
+                                        background: randomColor({
+                                            seed: _class.longName,
+                                            luminosity: 'dark'
+                                        }),
+                                        boxShadow: `0px 4px 9px ${randomColor({
+                                            seed: _class.longName,
+                                            luminosity: 'dark',
+                                            format: 'hex'
+                                        })}99`,
+                                        gridColumnStart: getColCount(_class.time.from),
+                                        gridColumnEnd: getColCount(_class.time.to)
+                                    }}><p>{_class.longName}</p></div>
+                            )
+                        }
+                    })}
                 </div>
             </div>
         </div>
