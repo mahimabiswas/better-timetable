@@ -51,9 +51,7 @@ function SelectDays({ days, setDays }) {
 }
 
 
-
 export default function AddLecture({ open, setOpen, programId, batchId }) {
-
     const [staffList, setStaffList] = useState([]);
     const [subjectList, setSubjectList] = useState([]);
     const [divisionList, setDivisionList] = useState([]);
